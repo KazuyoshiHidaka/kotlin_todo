@@ -8,18 +8,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import hidaka.kotlinstudy.todo.R
-import hidaka.kotlinstudy.todo.pagesList
+import hidaka.kotlinstudy.todo.model.Page
 
-class PagesRecyclerViewComponent(context: Context) {
+class PagesRecyclerViewComponent(data: Array<Page>, context: Context) {
     val viewManager: LinearLayoutManager = LinearLayoutManager(context)
-    val viewAdapter: MyAdapter = MyAdapter(pagesList)
+    val viewAdapter: MyAdapter = MyAdapter(data)
 
-    class MyAdapter(private val data: Array<String>) :
+    class MyAdapter(private val data: Array<Page>) :
         RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         class MyViewHolder(
-            private val itemView: View,
+            itemView: View
+        ) : RecyclerView.ViewHolder(itemView) {
             val title: TextView = itemView.findViewById(R.id.main_vh_title)
-        ) : RecyclerView.ViewHolder(itemView)
+        }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(
@@ -33,7 +34,8 @@ class PagesRecyclerViewComponent(context: Context) {
         override fun getItemCount() = data.size
 
         override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-            holder.title.text = data[position]
+            val page = data[position]
+            holder.title.text = page.title
         }
     }
 }
