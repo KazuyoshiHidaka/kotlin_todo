@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.PageNewActivity"
+            android:label="@string/page_new_activity_title"
+            android:parentActivityName=".ui.PageDetailActivity" />
+        <activity
             android:name=".ui.PageEditActivity"
             android:label="@string/page_edit_activity_title"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.PageDetailActivity" />
         <activity
             android:name=".ui.PageDetailActivity"
             android:label="@string/page_detail_activity_title"

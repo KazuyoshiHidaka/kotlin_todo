@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Note</string>
+    <string name="page_new_activity_title">New Page</string>
+    <string name="page_edit_activity_title">Edit Page</string>
     <string name="page_detail_activity_title">Page</string>
-    <string name="page_edit_activity_title">New Page</string>
+    <string name="page_detail_activity_updated_at_label">Last Updated: %1$s</string>
 </resources>
