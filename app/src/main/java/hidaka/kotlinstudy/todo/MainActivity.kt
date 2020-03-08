@@ -1,11 +1,8 @@
 package hidaka.kotlinstudy.todo
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import hidaka.kotlinstudy.todo.fragment.MainFragment
 import hidaka.kotlinstudy.todo.model.Page
-import hidaka.kotlinstudy.todo.ui.PageNewActivity
 import java.util.*
 
 /// サンプルデータ
@@ -21,18 +18,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            val fragment = MainFragment()
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.main_fragment_host, fragment)
-                .commit()
-        }
+//        if (savedInstanceState == null) {
+//            val fragment = MainFragment()
+//            supportFragmentManager
+//                .beginTransaction()
+//                .add(R.id.main_fragment_host, fragment)
+//                .commit()
+//        }
     }
 
-    fun navigateToPageNew() {
-        val intent = Intent(this, PageNewActivity::class.java)
-        startActivity(intent)
-    }
+//    fun navigateToPageNew() {
+//        val intent = Intent(this, PageNewActivity::class.java)
+//        startActivity(intent)
+//    }
 
 }

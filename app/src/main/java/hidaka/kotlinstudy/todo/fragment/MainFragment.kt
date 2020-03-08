@@ -1,18 +1,15 @@
 package hidaka.kotlinstudy.todo.fragment
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Lifecycle
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import hidaka.kotlinstudy.todo.MainActivity
 import hidaka.kotlinstudy.todo.R
 import hidaka.kotlinstudy.todo.pagesList
-import hidaka.kotlinstudy.todo.ui.PageNewActivity
 import hidaka.kotlinstudy.todo.ui_component.PagesRecyclerViewComponent
 
 /**
@@ -28,7 +25,6 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
@@ -37,7 +33,7 @@ class MainFragment : Fragment() {
 
         pagesRecyclerView = view.findViewById<RecyclerView>(R.id.main_recycler_view).also {
             pagesRecyclerViewComponent =
-                PagesRecyclerViewComponent(pagesList, it.context, ::startActivity)
+                PagesRecyclerViewComponent(pagesList, it.context, ::navigateToPageDetail)
 
             it.setHasFixedSize(true)
             it.layoutManager = pagesRecyclerViewComponent.viewManager
@@ -46,15 +42,19 @@ class MainFragment : Fragment() {
         floatingActionButton =
             view.findViewById<FloatingActionButton>(R.id.main_floating_action_button).also { it ->
                 it.setOnClickListener {
-                    fabClickCallback()
+                    navigateToPageNew()
                 }
             }
     }
 
-    private fun fabClickCallback() {
-        if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
-            (requireActivity() as MainActivity).navigateToPageNew()
-        }
+    private fun navigateToPageNew() {
+        val directions = MainFragmentDirections.actionMainFragmentToPageNewFragment()
+        findNavController().navigate(directions)
+    }
+
+    private fun navigateToPageDetail(pageId: Long) {
+        val directions = MainFragmentDirections.actionMainFragmentToPageDetailFragment(pageId)
+        findNavController().navigate(directions)
     }
 
 }
