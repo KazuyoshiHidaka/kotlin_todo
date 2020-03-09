@@ -44,7 +44,7 @@ class PageDetailFragment : Fragment() {
         }
         pageUpdatedAt = view.findViewById<TextView>(R.id.page_detail_updated_at).also {
             it.text = getString(
-                R.string.page_detail_activity_updated_at_label,
+                R.string.page_detail_updated_at_label,
                 DateFormat.getDateInstance(DateFormat.LONG).format(page?.updatedAt ?: Date())
             )
         }
