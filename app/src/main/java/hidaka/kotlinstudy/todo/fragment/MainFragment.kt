@@ -56,5 +56,4 @@ class MainFragment : Fragment() {
         val directions = MainFragmentDirections.actionMainFragmentToPageDetailFragment(pageId)
         findNavController().navigate(directions)
     }
-
 }
