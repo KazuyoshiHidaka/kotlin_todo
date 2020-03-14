@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="hidaka.kotlinstudy.todo.fragment.MainFragment"
+        android:label="@string/main_title">
+        <action
+            android:id="@+id/action_mainFragment_to_pageNewFragment"
+            app:destination="@id/pageNewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_pageDetailFragment"
+            app:destination="@id/pageDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageNewFragment"
+        android:name="hidaka.kotlinstudy.todo.fragment.PageNewFragment"
+        android:label="@string/page_new_title" />
+    <fragment
+        android:id="@+id/pageDetailFragment"
+        android:name="hidaka.kotlinstudy.todo.fragment.PageDetailFragment"
+        android:label="@string/page_detail_title">
+        <argument
+            android:name="pageId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_pageDetailFragment_to_pageEditFragment"
+            app:destination="@id/pageEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pageEditFragment"
+        android:name="hidaka.kotlinstudy.todo.fragment.PageEditFragment"
+        android:label="@string/page_edit_title">
+        <argument
+            android:name="pageId"
+            app:argType="long" />
+    </fragment>
+</navigation>
