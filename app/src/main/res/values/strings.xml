@@ -2,8 +2,12 @@
     <string name="app_name">Note</string>
     <string name="main_title">My Note</string>
     <string name="page_new_title">New</string>
+    <string name="page_new_page_form_title_hint">Title</string>
+    <string name="page_new_page_form_content_hint">Content</string>
+    <integer name="page_new_page_form_content_min_lines">5</integer>
     <string name="page_edit_title">Edit</string>
     <string name="page_detail_title">Detail</string>
     <string name="page_detail_updated_at_label">Last Updated: %1$s</string>
     <string name="page_detail_toolbar_action_delete_label">Delete</string>
+    <string name="component_page_form_title_validator_label">Please enter the title.</string>
 </resources>

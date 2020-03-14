@@ -48,7 +48,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:clickable="true"
-        android:focusable="true"
         android:src="@drawable/ic_edit_black_24dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
