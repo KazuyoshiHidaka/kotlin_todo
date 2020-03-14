@@ -3,8 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        layout="@layout/component_page_form"
+    <view
+        android:id="@+id/page_form_component_host"
+        class="hidaka.kotlinstudy.todo.ui_component.PageFormComponent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
